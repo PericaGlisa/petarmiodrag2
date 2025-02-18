@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "PetarMiodrag2",
+  "url": "https://whimsical-flan-7dc641.netlify.app/",
+  "jobTitle": "Digital Craftsman",
+  "description": "Digital craftsman designing and developing innovative SaaS products. From pixel-perfect interfaces to rapid MVPs, creating experiences that matter.",
+  "sameAs": [],
+  "knowsAbout": [
+    "Web Development",
+    "UI/UX Design",
+    "SaaS Development",
+    "Product Design",
+    "MVP Development"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": [{
+      "@type": "Service",
+      "name": "Web Development",
+      "description": "Custom web application development and SaaS solutions"
+    }, {
+      "@type": "Service",
+      "name": "UI/UX Design",
+      "description": "User interface and experience design for digital products"
+    }]
+  }
+}

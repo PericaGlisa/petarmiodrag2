@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://whimsical-flan-7dc641.netlify.app/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 1
