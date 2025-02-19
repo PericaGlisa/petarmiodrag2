@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { CookieConsent } from './components/ui/CookieConsent';
 import { BottomDock } from './components/layout/BottomDock';
+import { TopBar } from './components/layout/TopBar';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
@@ -48,10 +49,13 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
+    <div className="relative min-h-screen bg-black text-white">
       <Background />
+      <TopBar />
       <Header />
-      <main className="min-h-screen pt-16 pb-20">
+      <ScrollToTop />
+      
+      <main className="pt-24 pb-32">
         <Suspense fallback={<PageLoader />}>
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
@@ -66,10 +70,10 @@ export default function App() {
           </AnimatePresence>
         </Suspense>
       </main>
-      <BottomDock />
+
       <Footer />
+      <BottomDock />
       <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />
-      <ScrollToTop />
     </div>
   );
 }

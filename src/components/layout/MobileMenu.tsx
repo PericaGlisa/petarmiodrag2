@@ -49,10 +49,10 @@ export function MobileMenu() {
                 <motion.button
                   onClick={() => setIsOpen(false)}
                   className="p-2.5 hover:bg-gray-800/80 active:bg-gray-800 rounded-xl transition-all transform active:scale-95"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  animate={{ rotate: 90 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
-                  <X size={20} className="text-gray-400" />
+                  <X size={20} className="text-white" />
                 </motion.button>
               </div>
 
