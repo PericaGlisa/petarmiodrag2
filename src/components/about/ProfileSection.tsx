@@ -1,3 +1,4 @@
+import { Mail } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { SOCIAL_LINKS } from '../../constants';
 
@@ -22,6 +23,10 @@ export function ProfileSection() {
                 href={social.href}
                 className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
                 aria-label={social.label}
+                {...(social.icon !== Mail ? {
+                  target: "_blank",
+                  rel: "noopener noreferrer"
+                } : {})}
               >
                 <social.icon className="w-5 h-5 text-gray-300" />
               </a>

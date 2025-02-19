@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export function TopBar() {
   const messages = [
@@ -13,6 +14,27 @@ export function TopBar() {
     '🤝 Collaborative approach to digital product development'
   ];
 
+  const [duration, setDuration] = useState(25);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) { // Mobile
+        setDuration(45);
+      } else if (width < 768) { // Tablet
+        setDuration(40);
+      } else if (width < 1024) { // Laptop
+        setDuration(25);
+      } else { // Desktop
+        setDuration(20);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 right-0 h-8 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50 overflow-hidden">
       <div className="relative w-full h-full flex items-center">
@@ -25,7 +47,7 @@ export function TopBar() {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 25,
+              duration: duration,
               ease: "linear"
             }
           }}
@@ -35,5 +57,4 @@ export function TopBar() {
       </div>
     </div>
   );
-
 }

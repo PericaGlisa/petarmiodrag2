@@ -31,6 +31,10 @@ export function Profile() {
                 key={index}
                 href={social.href}
                 className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800/50 rounded-lg"
+                {...(social.icon !== Mail ? {
+                  target: "_blank",
+                  rel: "noopener noreferrer"
+                } : {})}
               >
                 <social.icon size={20} />
               </a>
