@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { Background } from './components/layout/background';
+import { Background } from './components/layout/Background';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { CookieConsent } from './components/ui/CookieConsent';
