@@ -54,8 +54,8 @@ export function MobileMenu() {
                 stiffness: 350,
                 damping: 35
               }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800/50 z-[1000] flex flex-col shadow-2xl"
-            >
+              className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800/50 z-[1000] flex flex-col shadow-2xl landscape:h-screen landscape:w-96 landscape:overflow-y-auto"
+              >
               <div className="p-5 border-b border-gray-800/50 flex justify-between items-center">
                 <span className="text-blue-400 font-semibold text-lg">Discover More</span>
                 <motion.button
