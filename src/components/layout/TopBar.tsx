@@ -20,13 +20,13 @@ export function TopBar() {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) { // Mobile
-        setDuration(45);
+        setDuration(165);
       } else if (width < 768) { // Tablet
-        setDuration(40);
+        setDuration(155);
       } else if (width < 1024) { // Laptop
-        setDuration(25);
+        setDuration(145);
       } else { // Desktop
-        setDuration(20);
+        setDuration(135);
       }
     };
 

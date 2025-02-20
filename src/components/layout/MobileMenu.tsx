@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLinks } from './NavLinks';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   return (
     <div className="md:hidden">
@@ -45,7 +57,7 @@ export function MobileMenu() {
               className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800/50 z-[1000] flex flex-col shadow-2xl"
             >
               <div className="p-5 border-b border-gray-800/50 flex justify-between items-center">
-                <span className="text-blue-400 font-semibold text-lg">Explore</span>
+                <span className="text-blue-400 font-semibold text-lg">Discover More</span>
                 <motion.button
                   onClick={() => setIsOpen(false)}
                   className="p-2.5 hover:bg-gray-800/80 active:bg-gray-800 rounded-xl transition-all transform active:scale-95"

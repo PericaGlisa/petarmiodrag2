@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { Background } from './components/layout/Background';
+import { Background } from './components/layout/background';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { CookieConsent } from './components/ui/CookieConsent';
@@ -49,15 +49,14 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <div className="relative min-h-screen">
       <Background />
-      <TopBar />
-      <Header />
-      <ScrollToTop />
-      
-      <main className="pt-24 pb-32">
-        <Suspense fallback={<PageLoader />}>
-          <AnimatePresence mode="wait">
+      <div className="relative z-10">
+        <TopBar />
+        <Header />
+        <ScrollToTop />
+        <AnimatePresence mode="wait">
+          <Suspense fallback={<PageLoader />}>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -67,12 +66,11 @@ export default function App() {
               <Route path="/booking" element={<Booking />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </AnimatePresence>
-        </Suspense>
-      </main>
-
-      <Footer />
-      <BottomDock />
+          </Suspense>
+        </AnimatePresence>
+        <Footer />
+        <BottomDock />
+      </div>
       <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />
     </div>
   );

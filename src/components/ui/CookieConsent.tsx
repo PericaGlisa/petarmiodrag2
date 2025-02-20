@@ -35,9 +35,9 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onAccept, onReject
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gray-900 bg-opacity-95 backdrop-blur-sm border-t border-gray-800"
+          className="fixed bottom-4 left-4 right-4 z-50 p-6 bg-gray-900 bg-opacity-95 backdrop-blur-sm border border-gray-800 rounded-xl shadow-xl max-w-7xl mx-auto"
         >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-white text-sm">
               <p>
                 I use cookies to enhance your experience. By continuing to visit this site you agree to my use of cookies.
