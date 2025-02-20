@@ -124,9 +124,42 @@
   }
 }
 
-/* Optimize mobile scrolling */
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 5px;
+  border: 2px solid rgba(17, 24, 39, 0.7);
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(17, 24, 39, 0.7);
+}
+
+/* Mobile Touch Scrolling Optimization */
 @supports (-webkit-touch-callout: none) {
   .min-h-screen {
     min-height: -webkit-fill-available;
+  }
+  
+  /* Smooth scrolling for iOS */
+  * {
+    -webkit-overflow-scrolling: touch;
   }
 }
