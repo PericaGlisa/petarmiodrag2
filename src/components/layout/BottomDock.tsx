@@ -11,7 +11,7 @@ export function BottomDock() {
   ];
 
   return (
-    <nav className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 bg-blue-900/80 border border-blue-500/30 backdrop-blur-md z-40 py-1.5 px-1.5 sm:px-3 rounded-2xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 shadow-blue-500/10 will-change-transform max-w-sm mx-auto">
+    <nav className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 bg-blue-900/80 border border-blue-500/30 backdrop-blur-md z-30 py-1.5 px-1.5 sm:px-3 rounded-2xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 shadow-blue-500/10 will-change-transform max-w-sm mx-auto">
       <div className="flex items-center justify-between gap-0.5 sm:gap-1.5">
         {links.map((link, index) => (
           <Link

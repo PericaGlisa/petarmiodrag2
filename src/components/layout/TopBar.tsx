@@ -36,7 +36,7 @@ export function TopBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-8 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50 overflow-hidden">
+    <div className="fixed top-0 left-0 right-0 h-8 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-40 overflow-hidden">
       <div className="relative w-full h-full flex items-center">
         <motion.div
           className="whitespace-nowrap text-gray-400 text-sm"

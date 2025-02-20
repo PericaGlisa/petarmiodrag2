@@ -29,7 +29,7 @@ export function MobileMenu() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999]"
               onClick={() => setIsOpen(false)}
             />
 
@@ -42,7 +42,7 @@ export function MobileMenu() {
                 stiffness: 350,
                 damping: 35
               }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800/50 z-[70] flex flex-col shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800/50 z-[1000] flex flex-col shadow-2xl"
             >
               <div className="p-5 border-b border-gray-800/50 flex justify-between items-center">
                 <span className="text-blue-400 font-semibold text-lg">Explore</span>
