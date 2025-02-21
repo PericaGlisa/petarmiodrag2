@@ -19,7 +19,7 @@ export function MobileMenu() {
   }, [isOpen]);
 
   return (
-    <div className="md:hidden">
+    <div className="sm:hidden md:hidden landscape:sm:block landscape:md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="text-white p-2.5 hover:bg-gray-800/80 active:bg-gray-800 rounded-xl transition-all transform active:scale-95"

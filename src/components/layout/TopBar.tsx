@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export function TopBar() {
   const messages = [
-    '🚀 Crafting digital experiences that inspire and innovate at petarmiodrag.xyz',
+    '🚀 Crafting digital experiences that inspire and innovate at petarmiodrag2.xyz',
     '💡 Transforming ideas into scalable SaaS solutions',
     '🎨 Creating pixel-perfect UI/UX designs for modern web applications',
     '⚡ Rapid MVP development and agile product iterations',
