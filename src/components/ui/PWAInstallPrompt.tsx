@@ -33,7 +33,7 @@ export function PWAInstallPrompt() {
     setDeferredPrompt(null);
   };
 
-  return (
+  return showInstallBanner ? (
     <div className="w-full bg-gray-900 p-4 flex flex-col sm:flex-row justify-between items-center gap-4 rounded-lg shadow-lg border border-gray-800">
       <div className="flex items-center gap-3">
         <FaCloudDownloadAlt className="text-blue-400 text-xl" />
@@ -54,5 +54,5 @@ export function PWAInstallPrompt() {
         </button>
       </div>
     </div>
-  );
+  ) : null;
 }
