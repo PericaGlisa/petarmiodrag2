@@ -28,19 +28,20 @@ const previewProducts = [
 
 export function ProductsPreviewSection() {
   return (
-    <section className="space-y-6">
+    <section className="space-y-6" aria-labelledby="portfolio-title">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="mb-2">Digital Product Portfolio</h2>
-          <p className="text-gray-400">My innovative SaaS solutions are being prepared and will be available shortly.</p>
+          <h2 id="portfolio-title" className="mb-2">Digital Product Portfolio</h2>
+          <p className="text-gray-400" role="status">My innovative SaaS solutions are being prepared and will be available shortly.</p>
         </div>
         <Button 
           as={Link} 
           to="/products" 
           className="flex items-center justify-center gap-2 whitespace-nowrap"
+          aria-label="View all products"
         >
           All Products
-          <ArrowRight size={16} />
+          <ArrowRight size={16} aria-hidden="true" />
         </Button>
       </div>
 

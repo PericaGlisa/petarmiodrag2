@@ -24,8 +24,8 @@ export function NewsletterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6" aria-label="Newsletter subscription form">
+      <div className="space-y-4" role="group" aria-label="Personal information">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
             Your Name
@@ -38,8 +38,10 @@ export function NewsletterForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            aria-label="Name"
+            aria-required="true"
+            aria-describedby="name-description"
           />
+          <span id="name-description" className="sr-only">Please enter your full name</span>
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
@@ -53,15 +55,18 @@ export function NewsletterForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            aria-label="Email"
+            aria-required="true"
+            aria-describedby="email-description"
           />
+          <span id="email-description" className="sr-only">Please enter a valid email address</span>
         </div>
       </div>
       <Button 
         type="submit" 
         className="w-full flex items-center justify-center gap-2 py-3"
+        aria-label="Subscribe to newsletter"
       >
-        <Send size={20} />
+        <Send size={20} aria-hidden="true" />
         Join the newsletter
       </Button>
     </form>

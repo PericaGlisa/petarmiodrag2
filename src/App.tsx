@@ -17,6 +17,8 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Products = lazy(() => import('./pages/Products'));
 const Booking = lazy(() => import('./pages/Booking'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 // Loading component for lazy-loaded routes
 const PageLoader = () => (
@@ -35,6 +37,8 @@ function ScrollToTop() {
   return null;
 }
 
+import { ErrorBoundary } from './components/error/ErrorBoundary';
+
 export default function App() {
   const location = useLocation();
 
@@ -49,6 +53,7 @@ export default function App() {
   };
 
   return (
+    <ErrorBoundary>
     <div className="relative min-h-screen">
       <Background />
       <div className="relative z-10">
@@ -64,6 +69,8 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/products" element={<Products />} />
               <Route path="/booking" element={<Booking />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
@@ -73,5 +80,6 @@ export default function App() {
       </div>
       <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />
     </div>
+    </ErrorBoundary>
   );
 }
