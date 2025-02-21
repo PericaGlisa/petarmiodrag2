@@ -8,15 +8,25 @@ interface BeforeInstallPromptEvent extends Event {
 
 export function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [showInstallBanner, setShowInstallBanner] = useState(true);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
 
   useEffect(() => {
     const handler = (e: BeforeInstallPromptEvent) => {
       e.preventDefault();
       setDeferredPrompt(e);
+      setShowInstallBanner(true);
     };
 
     window.addEventListener('beforeinstallprompt', handler as EventListener);
+
+    // Check if the app is already installed
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as any).standalone ||
+      document.referrer.includes('android-app://');
+
+    if (isStandalone) {
+      setShowInstallBanner(false);
+    }
 
     return () => window.removeEventListener('beforeinstallprompt', handler as EventListener);
   }, []);
@@ -24,16 +34,22 @@ export function PWAInstallPrompt() {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
 
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    
-    if (outcome === 'accepted') {
-      setShowInstallBanner(false);
+    try {
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      
+      if (outcome === 'accepted') {
+        setShowInstallBanner(false);
+      }
+      setDeferredPrompt(null);
+    } catch (error) {
+      console.error('Error during PWA installation:', error);
     }
-    setDeferredPrompt(null);
   };
 
-  return showInstallBanner ? (
+  if (!showInstallBanner) return null;
+
+  return (
     <div className="w-full bg-gray-900 p-4 flex flex-col sm:flex-row justify-between items-center gap-4 rounded-lg shadow-lg border border-gray-800">
       <div className="flex items-center gap-3">
         <FaCloudDownloadAlt className="text-blue-400 text-xl" />
@@ -54,5 +70,5 @@ export function PWAInstallPrompt() {
         </button>
       </div>
     </div>
-  ) : null;
+  );
 }

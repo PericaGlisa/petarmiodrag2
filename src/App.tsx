@@ -38,6 +38,7 @@ function ScrollToTop() {
 }
 
 import { ErrorBoundary } from './components/error/ErrorBoundary';
+import { PWAInstallBanner } from './components/ui/PWAInstallBanner';
 
 export default function App() {
   const location = useLocation();
@@ -79,6 +80,7 @@ export default function App() {
         <BottomDock />
       </div>
       <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />
+      <PWAInstallBanner />
     </div>
     </ErrorBoundary>
   );
