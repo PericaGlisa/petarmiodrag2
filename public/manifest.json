@@ -1,11 +1,11 @@
 {
-  "name": "Your Website Name",
-  "short_name": "YWN",
-  "description": "A modern, fast, and reliable web application",
+  "name": "Petar Glišović Portfolio",
+  "short_name": "Petar G.",
+  "description": "Petar Glišović's personal portfolio and blog showcasing web development expertise",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#111827",
+  "theme_color": "#111827",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
