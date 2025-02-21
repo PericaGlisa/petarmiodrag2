@@ -1,47 +1,9 @@
-import { useState, useEffect } from 'react';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
+import { usePWAInstall } from '../../contexts/PWAInstallContext';
 
 export function PWAInstallBanner() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [showBanner, setShowBanner] = useState(false);
+  const { isInstallable, isInstalling, triggerInstall } = usePWAInstall();
 
-  useEffect(() => {
-    const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      setShowBanner(true);
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt as EventListener);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt as EventListener);
-    };
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) {
-      console.log('No installation prompt available');
-      return;
-    }
-
-    try {
-      await deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      
-      console.log('Installation outcome:', outcome);
-      if (outcome === 'accepted') {
-        setShowBanner(false);
-      }
-      setDeferredPrompt(null);
-    } catch (error) {
-      console.error('Error installing PWA:', error);
-    }
-  };
+  if (!isInstallable) return null;
 
   if (!showBanner) return null;
 
