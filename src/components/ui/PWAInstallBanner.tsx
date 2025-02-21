@@ -24,12 +24,16 @@ export function PWAInstallBanner() {
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+      console.log('No installation prompt available');
+      return;
+    }
 
     try {
       await deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       
+      console.log('Installation outcome:', outcome);
       if (outcome === 'accepted') {
         setShowBanner(false);
       }
