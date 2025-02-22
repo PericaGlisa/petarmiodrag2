@@ -1,31 +1,31 @@
 import { usePWAInstall } from '../../contexts/PWAInstallContext';
-import { useState } from 'react';
+import { FaDownload } from 'react-icons/fa';
 
 export function PWAInstallBanner() {
-  const { isInstallable, isInstalling, triggerInstall } = usePWAInstall();
-  const [showBanner, setShowBanner] = useState(true);
+  const { isInstallable, isInstalling, isInstalled, triggerInstall } = usePWAInstall();
 
-  if (!isInstallable) return null;
-  if (!showBanner) return null;
-
-  const handleInstallClick = async () => {
-    await triggerInstall();
-    setShowBanner(false);
-  };
+  if (!isInstallable || isInstalled) {
+    return null;
+  }
 
   return (
-    <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-blue-900/80 border border-blue-500/30 backdrop-blur-md z-20 py-3 px-4 rounded-2xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 shadow-blue-500/10 max-w-sm mx-auto">
-      <div className="flex items-center justify-between gap-4">
+    <div className="fixed bottom-4 right-4 z-50">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex items-center space-x-4 border border-blue-500 dark:border-blue-400">
         <div className="flex-1">
-          <p className="text-white text-sm font-medium">Install App</p>
-          <p className="text-gray-300 text-xs">Get the best experience</p>
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+            Install PG² Portfolio App
+          </h3>
+          <p className="text-xs text-gray-600 dark:text-gray-300">
+            Get quick access to web development excellence
+          </p>
         </div>
         <button
-          onClick={handleInstallClick}
+          onClick={triggerInstall}
           disabled={isInstalling}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center space-x-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isInstalling ? 'Installing...' : 'Install'}
+          <FaDownload className="w-4 h-4" />
+          <span>{isInstalling ? 'Installing...' : 'Install'}</span>
         </button>
       </div>
     </div>

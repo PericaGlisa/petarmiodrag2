@@ -1,58 +1,27 @@
-import { useEffect, useState } from 'react';
-import { FaCloudDownloadAlt } from 'react-icons/fa';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
+import { useContext } from 'react';
+import { PWAInstallContext } from '../../contexts/PWAInstallContext';
 
 export function PWAInstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [showInstallBanner, setShowInstallBanner] = useState(true);
+  const { showInstallPrompt, deferredPrompt } = useContext(PWAInstallContext);
 
-  useEffect(() => {
-    const handler = (e: BeforeInstallPromptEvent) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    };
+  if (!deferredPrompt) return null;
 
-    window.addEventListener('beforeinstallprompt', handler as EventListener);
-
-    return () => window.removeEventListener('beforeinstallprompt', handler as EventListener);
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
-
-    await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    
-    if (outcome === 'accepted') {
-      setShowInstallBanner(false);
-    }
-    setDeferredPrompt(null);
-  };
-
-  return showInstallBanner ? (
-    <div className="w-full bg-gray-900 p-4 flex flex-col sm:flex-row justify-between items-center gap-4 rounded-lg shadow-lg border border-gray-800">
-      <div className="flex items-center gap-3">
-        <FaCloudDownloadAlt className="text-blue-400 text-xl" />
-        <p className="text-white font-medium text-center sm:text-left">Install my app for a better experience!</p>
-      </div>
-      <div className="flex gap-4">
+  return (
+    <div className="fixed bottom-20 left-4 right-4 sm:left-auto sm:right-4 sm:w-96 bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-700">
+      <div className="flex items-start justify-between">
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold text-white">Install App</h3>
+          <p className="mt-1 text-sm text-gray-300">
+            Install our app for a better experience
+          </p>
+        </div>
         <button
-          onClick={() => setShowInstallBanner(false)}
-          className="text-gray-400 hover:text-white transition-colors"
+          onClick={() => showInstallPrompt()}
+          className="ml-4 inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
         >
-          Not now
-        </button>
-        <button
-          onClick={handleInstallClick}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center gap-2"
-        >
-          Install App
+          Install
         </button>
       </div>
     </div>
-  ) : null;
+  );
 }

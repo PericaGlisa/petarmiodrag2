@@ -1,11 +1,11 @@
 {
-  "name": "Petar Glišović Portfolio",
-  "short_name": "Petar G.",
-  "description": "Petar Glišović's personal portfolio and blog showcasing web development expertise",
+  "name": "PetarMiodrag2's Portfolio - Web Development Excellence",
+  "short_name": "PG² Portfolio",
+  "description": "Explore innovative web development solutions and creative coding expertise in PetarMiodrag2's professional portfolio",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#111827",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",

@@ -8,12 +8,14 @@ type BeforeInstallPromptEvent = Event & {
 interface PWAInstallContextType {
   isInstallable: boolean;
   isInstalling: boolean;
+  isInstalled: boolean;
   triggerInstall: () => Promise<void>;
 }
 
 const PWAInstallContext = createContext<PWAInstallContextType>({
   isInstallable: false,
   isInstalling: false,
+  isInstalled: false,
   triggerInstall: async () => {},
 });
 
@@ -26,17 +28,37 @@ interface PWAInstallProviderProps {
 export const PWAInstallProvider: React.FC<PWAInstallProviderProps> = ({ children }) => {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalling, setIsInstalling] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
+    // Check if app is installed
+    const checkInstalled = () => {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                          (window.navigator as any).standalone ||
+                          document.referrer.includes('android-app://');
+      setIsInstalled(isStandalone);
+    };
+
+    checkInstalled();
+    window.matchMedia('(display-mode: standalone)').addListener(checkInstalled);
+
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
 
+    const handleAppInstalled = () => {
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+    };
+
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+      window.matchMedia('(display-mode: standalone)').removeListener(checkInstalled);
     };
   }, []);
 
@@ -50,6 +72,7 @@ export const PWAInstallProvider: React.FC<PWAInstallProviderProps> = ({ children
       
       if (outcome === 'accepted') {
         setDeferredPrompt(null);
+        setIsInstalled(true);
       }
     } catch (error) {
       console.error('Error installing PWA:', error);
@@ -61,8 +84,9 @@ export const PWAInstallProvider: React.FC<PWAInstallProviderProps> = ({ children
   return (
     <PWAInstallContext.Provider
       value={{
-        isInstallable: !!deferredPrompt,
+        isInstallable: !!deferredPrompt && !isInstalled,
         isInstalling,
+        isInstalled,
         triggerInstall,
       }}
     >

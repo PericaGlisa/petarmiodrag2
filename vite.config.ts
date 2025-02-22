@@ -4,6 +4,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 import compression from 'vite-plugin-compression';
 
 export default defineConfig({
+  server: {
+    host: true,
+    port: 5173,
+    strictPort: true
+  },
   plugins: [
     react(),
     compression({
@@ -60,7 +65,7 @@ export default defineConfig({
       },
     },
   },
-  server: {
+  preview: {
     headers: {
       'Cache-Control': 'public, max-age=31536000',
     },
