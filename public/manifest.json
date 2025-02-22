@@ -1,11 +1,11 @@
 {
-  "name": "PetarMiodrag2's Portfolio - Web Development Excellence",
-  "short_name": "PG² Portfolio",
-  "description": "Explore innovative web development solutions and creative coding expertise in PetarMiodrag2's professional portfolio",
+  "name": "Your Website Name",
+  "short_name": "YWN",
+  "description": "A modern, fast, and reliable web application",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",

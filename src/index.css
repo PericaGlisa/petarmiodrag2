@@ -8,16 +8,12 @@
     -webkit-tap-highlight-color: transparent;
     background: #000;
     overscroll-behavior: none;
-    scroll-behavior: smooth;
   }
 
   body {
     overscroll-behavior: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    touch-action: manipulation;
-    overflow-x: hidden;
-    will-change: scroll-position;
   }
 
   /* Typography System */
@@ -45,16 +41,6 @@
   a {
     color: #60a5fa;
     transition: color 0.2s;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-  }
-
-  button, [role='button'] {
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    cursor: pointer;
   }
 
   .btn {
@@ -62,7 +48,6 @@
     border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.2s;
-    will-change: transform;
   }
 
   .btn-primary {
@@ -78,23 +63,6 @@
   /* Improve scrolling performance */
   * {
     -webkit-overflow-scrolling: touch;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-  }
-
-  /* Prevent text size adjustment on orientation change */
-  html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  /* Optimize touch events */
-  @media (pointer: coarse) {
-    * {
-      min-height: 48px;
-      min-width: 48px;
-    }
   }
 }
 
@@ -107,7 +75,6 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     transform: translateZ(0);
     backface-visibility: hidden;
-    will-change: transform;
   }
 
   .heading-gradient {
@@ -118,55 +85,48 @@
   }
 
   .hover-scale {
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
+    transition: transform 300ms;
   }
 
   /* Landscape mode optimizations */
   @media (orientation: landscape) and (max-height: 600px) {
-    .landscape-optimize {
-      max-height: 85vh;
-      overflow-y: auto;
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    main {
+      padding-top: 1rem;
+      padding-bottom: 5rem;
+    }
+
+    .fixed.bottom-4 {
+      bottom: 0.5rem;
+    }
+
+    .fixed.top-8 {
+      top: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
 
-/* Custom Scrollbar Styles */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(4px);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.5);
-  border-radius: 5px;
-  border: 2px solid rgba(17, 24, 39, 0.7);
-  transition: background-color 0.2s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.7);
-}
-
-/* Firefox Scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(17, 24, 39, 0.7);
-}
-
-/* Mobile Touch Scrolling Optimization */
+/* Optimize mobile scrolling */
 @supports (-webkit-touch-callout: none) {
   .min-h-screen {
     min-height: -webkit-fill-available;
-  }
-  
-  /* Smooth scrolling for iOS */
-  * {
-    -webkit-overflow-scrolling: touch;
   }
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export function TopBar() {
   const messages = [
-    '🚀 Crafting digital experiences that inspire and innovate at petarmiodrag2.xyz',
+    '🚀 Crafting digital experiences that inspire and innovate at petarmiodrag.xyz',
     '💡 Transforming ideas into scalable SaaS solutions',
     '🎨 Creating pixel-perfect UI/UX designs for modern web applications',
     '⚡ Rapid MVP development and agile product iterations',
@@ -20,13 +20,13 @@ export function TopBar() {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) { // Mobile
-        setDuration(165);
+        setDuration(45);
       } else if (width < 768) { // Tablet
-        setDuration(155);
+        setDuration(40);
       } else if (width < 1024) { // Laptop
-        setDuration(145);
+        setDuration(25);
       } else { // Desktop
-        setDuration(135);
+        setDuration(20);
       }
     };
 

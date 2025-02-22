@@ -9,7 +9,7 @@ import { Card } from '../components/ui/Card';
 export default function Home() {
   return (
     <div className="min-h-screen pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid lg:grid-cols-[300px,1fr] xl:grid-cols-[350px,1fr] gap-6 sm:gap-8 lg:gap-12">
           <div className="lg:order-1 order-first w-full">
             <Profile />

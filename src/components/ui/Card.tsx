@@ -1,4 +1,4 @@
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps {
   children: React.ReactNode;
   className?: string;
 }
