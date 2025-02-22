@@ -12,7 +12,7 @@ interface PWAInstallContextType {
   triggerInstall: () => Promise<void>;
 }
 
-const PWAInstallContext = createContext<PWAInstallContextType>({
+export const PWAInstallContext = createContext<PWAInstallContextType>({
   isInstallable: false,
   isInstalling: false,
   isInstalled: false,
