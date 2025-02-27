@@ -1,0 +1,34 @@
+{
+  "pages": [
+    {
+      "title": "Home",
+      "path": "/",
+      "keywords": ["home", "main", "landing", "welcome"],
+      "description": "Welcome to our website. Find everything you need here."
+    },
+    {
+      "title": "About",
+      "path": "/about",
+      "keywords": ["about", "company", "team", "mission", "vision"],
+      "description": "Learn more about our company, team, and mission."
+    },
+    {
+      "title": "Products",
+      "path": "/products",
+      "keywords": ["products", "services", "offerings", "solutions"],
+      "description": "Explore our range of products and services."
+    },
+    {
+      "title": "Contact",
+      "path": "/contact",
+      "keywords": ["contact", "reach out", "support", "help"],
+      "description": "Get in touch with us for any inquiries or support."
+    },
+    {
+      "title": "Newsletter",
+      "path": "/newsletter",
+      "keywords": ["newsletter", "updates", "subscribe", "news"],
+      "description": "Stay updated with our latest news and updates."
+    }
+  ]
+}
