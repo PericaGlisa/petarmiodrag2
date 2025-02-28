@@ -38,6 +38,8 @@ export default defineConfig({
       },
     },
   },
+  publicDir: 'public',
+  base: '/',
   server: {
     headers: {
       'Cache-Control': 'public, max-age=31536000',
