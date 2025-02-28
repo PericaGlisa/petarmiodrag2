@@ -22,12 +22,13 @@
 [[headers]]
   for = "/favicon.ico"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "image/x-icon"
 
 [[headers]]
   for = "/icons/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/assets/*"
