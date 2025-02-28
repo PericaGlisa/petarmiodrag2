@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/generate-favicon.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -43,6 +43,7 @@
     "react-codemod": "^5.4.4",
     "react-scan": "^0.2.7",
     "react-scanner": "^1.2.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
     "terser": "^5.29.2",
     "typescript": "^5.5.3",
