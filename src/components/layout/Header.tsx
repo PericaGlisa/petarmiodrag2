@@ -22,11 +22,11 @@ export function Header() {
           
           {/* Desktop Navigation */}
           <NavLinks 
-            className="hidden md:flex items-center gap-8"
+            className="hidden lg:flex items-center gap-8"
             linkClassName="text-gray-300 hover:text-white flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors"
           />
 
-          {/* Mobile Menu */}
+          {/* Mobile/Tablet Menu */}
           <MobileMenu />
         </div>
       </div>
