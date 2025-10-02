@@ -11,7 +11,7 @@ export function Header() {
           <Link to="/" className="flex items-center gap-3">
             <img 
               src="/profile.jpg" 
-              alt="Petar Glišović Profile" 
+              alt="Petar Glišović Profile"
               className="w-10 h-10 rounded-full border-2 border-blue-500/50 hover:border-blue-400 transition-colors"
             />
             <div className="flex items-center gap-1">
