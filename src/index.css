@@ -1,0 +1,203 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    background: #000;
+    overscroll-behavior: none;
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+  }
+
+  /* Typography System */
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    color: #60a5fa;
+    transition: color 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button, [role='button'] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background-color: #2563eb;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: #374151;
+    color: white;
+  }
+
+  /* Improve scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(31, 41, 55, 0.5);
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .heading-gradient {
+    background-image: linear-gradient(to right, #3B82F6, #A855F7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hover-scale {
+    transition: transform 300ms;
+  }
+
+  /* Landscape mode optimizations */
+  @media (orientation: landscape) and (max-height: 600px) {
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    main {
+      padding-top: 2.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .fixed.bottom-4 {
+      bottom: 0.5rem;
+    }
+
+    .fixed.top-8 {
+      top: 2rem;
+    }
+    
+    /* TopBar optimizations for landscape mode */
+    .fixed.top-0 {
+      position: fixed;
+      height: auto;
+      min-height: 1.75rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+  
+  /* iPad specific optimizations */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* Ensure TopBar is visible on iPad in landscape mode */
+    .fixed.top-0 {
+      position: fixed;
+      height: auto;
+      min-height: 2rem;
+      padding-top: 0.375rem;
+      padding-bottom: 0.375rem;
+      z-index: 40 !important; /* Ensure TopBar is below the mobile menu */
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    /* Adjust header position to prevent overlap with TopBar */
+    .fixed.top-8 {
+      top: 2.75rem;
+      z-index: 40;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 5px;
+  border: 2px solid rgba(17, 24, 39, 0.7);
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(17, 24, 39, 0.7);
+}
+
+/* Mobile Touch Scrolling Optimization */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Smooth scrolling for iOS */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}

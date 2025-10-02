@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://petarmiodrag2.xyz/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 1

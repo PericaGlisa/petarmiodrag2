@@ -1,0 +1,53 @@
+{
+  "@context": "https://schema.org",
+  "@type": ["Person", "LocalBusiness"],
+  "name": "PetarMiodrag2",
+  "url": "https://petarmiodrag2.xyz/",
+  "jobTitle": "Digital Craftsman",
+  "description": "Digital craftsman designing and developing innovative SaaS products. From pixel-perfect interfaces to rapid MVPs, creating experiences that matter.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "RS",
+    "addressRegion": "Serbia",
+    "addressLocality": "Belgrade",
+    "postalCode": "11000"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "44.787197",
+    "longitude": "20.457273"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "44.787197",
+      "longitude": "20.457273"
+    },
+    "geoRadius": "50000"
+  },
+  "sameAs": [],
+  "knowsAbout": [
+    "Web Development",
+    "UI/UX Design",
+    "SaaS Development",
+    "Product Design",
+    "MVP Development"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": [{
+      "@type": "Service",
+      "name": "Web Development",
+      "description": "Custom web application development and SaaS solutions",
+      "areaServed": "Serbia"
+    }, {
+      "@type": "Service",
+      "name": "UI/UX Design",
+      "description": "User interface and experience design for digital products",
+      "areaServed": "Serbia"
+    }]
+  },
+  "priceRange": "€€",
+  "openingHours": "Mo-Fr 09:00-17:00"
+}
