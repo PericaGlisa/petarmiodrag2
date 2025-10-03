@@ -1,6 +1,6 @@
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
-import { CreditCard, ArrowRight, Zap, Palette, Search, Target, Share2, Video, Mail, Code, Globe, BarChart } from 'lucide-react';
+import { CreditCard, ArrowRight, Zap, Palette, Search, Target, Share2, Video, Mail, Code, Globe, BarChart, Settings } from 'lucide-react';
 
 interface ServiceTier {
   name: string;
@@ -21,26 +21,26 @@ interface Service {
 const services: Service[] = [
   {
     id: 'digital-marketing',
-    title: 'Digital Marketing',
-    description: 'Comprehensive digital marketing strategies to grow your online presence',
+    title: 'Digital Marketing Strategy',
+    description: 'Strategic planning, paid advertising management, and performance analytics',
     icon: Zap,
     gradient: 'from-blue-500 to-purple-500',
     benefits: [
-      'Increased brand awareness',
-      'Higher conversion rates',
-      'Better ROI tracking',
-      'Data-driven decisions'
+      'Strategic planning & roadmaps',
+      'Paid advertising optimization',
+      'Advanced analytics & insights',
+      'Competitive intelligence'
     ],
     tiers: [
       {
         name: 'Starter',
-        price: 999,
-        features: ['Social media management', 'Basic analytics', 'Monthly reports']
+        price: 1299,
+        features: ['Marketing strategy audit', 'Paid ad campaign setup', 'Performance tracking', 'Monthly strategy reports']
       },
       {
         name: 'Professional',
-        price: 1999,
-        features: ['Advanced analytics', 'Content strategy', 'Competitor analysis', 'Weekly reports']
+        price: 2499,
+        features: ['Comprehensive marketing roadmap', 'Multi-platform paid campaigns', 'Advanced analytics dashboard', 'Competitor analysis', 'Weekly optimization calls']
       }
     ]
   },
@@ -120,27 +120,27 @@ const services: Service[] = [
     ]
   },
   {
-    id: 'social-media',
-    title: 'Social Media',
-    description: 'Build and engage your social media community',
+    id: 'content-social-media',
+    title: 'Content & Social Media',
+    description: 'Organic content creation, social media management, and community building',
     icon: Share2,
-    gradient: 'from-blue-500 to-cyan-500',
+    gradient: 'from-teal-500 to-cyan-500',
     benefits: [
-      'Community growth',
-      'Brand engagement',
-      'Content strategy',
-      'Social listening'
+      'Organic content creation',
+      'Social media management',
+      'Community engagement',
+      'Brand storytelling'
     ],
     tiers: [
       {
         name: 'Essential',
-        price: 699,
-        features: ['Profile optimization', 'Content calendar', 'Basic engagement']
+        price: 899,
+        features: ['Content calendar planning', 'Social media posts (3-5/week)', 'Basic community engagement', 'Monthly content reports']
       },
       {
         name: 'Premium',
-        price: 1499,
-        features: ['Content creation', 'Community management', 'Paid advertising', 'Analytics']
+        price: 1799,
+        features: ['Blog posts & long-form content', 'Daily social media management', 'Active community building', 'Content series & campaigns', 'Weekly engagement reports']
       }
     ]
   },
@@ -194,32 +194,6 @@ const services: Service[] = [
       }
     ]
   },
-
-  {
-    id: 'content-marketing',
-    title: 'Content Marketing',
-    description: 'Create valuable content that attracts and retains customers',
-    icon: Globe,
-    gradient: 'from-teal-500 to-green-500',
-    benefits: [
-      'Thought leadership',
-      'Organic traffic',
-      'Lead generation',
-      'Brand authority'
-    ],
-    tiers: [
-      {
-        name: 'Basic',
-        price: 899,
-        features: ['Blog posts', 'Social content', 'Basic strategy']
-      },
-      {
-        name: 'Premium',
-        price: 1899,
-        features: ['Long-form content', 'Ebooks', 'Case studies', 'Distribution']
-      }
-    ]
-  },
   {
     id: 'analytics',
     title: 'Analytics & Reporting',
@@ -244,6 +218,31 @@ const services: Service[] = [
         features: ['Weekly reports', 'Custom dashboards', 'Advanced analytics', 'Recommendations']
       }
     ]
+  },
+  {
+    id: 'marketing-automation',
+    title: 'Marketing Automation',
+    description: 'Streamline your marketing processes with intelligent automation workflows',
+    icon: Settings,
+    gradient: 'from-indigo-500 to-blue-500',
+    benefits: [
+      'Lead nurturing automation',
+      'Workflow optimization',
+      'Personalized customer journeys',
+      'Time & resource savings'
+    ],
+    tiers: [
+      {
+        name: 'Essential',
+        price: 999,
+        features: ['Basic automation workflows', 'Email sequences', 'Lead scoring', 'CRM integration']
+      },
+      {
+        name: 'Advanced',
+        price: 1999,
+        features: ['Complex multi-channel workflows', 'Behavioral triggers', 'Advanced segmentation', 'A/B testing automation', 'Custom integrations']
+      }
+    ]
   }
 ];
 
@@ -252,10 +251,10 @@ export default function DigitalServices() {
     <div className="min-h-screen pt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="mb-12">
-          <h1>Digital Marketing Services</h1>
+          <h1>Services</h1>
           <p className="text-gray-400 text-lg max-w-3xl">
-            Transform your online presence with my comprehensive suite of digital marketing services.
-            Each service is tailored to help your business grow and succeed in the digital landscape.
+            Specialized services with clear focus areas. From paid advertising strategy 
+            to organic content creation, each service is designed to excel in its specific domain.
           </p>
         </div>
 

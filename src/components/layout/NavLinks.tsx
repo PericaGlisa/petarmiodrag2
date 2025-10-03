@@ -7,6 +7,7 @@ interface NavLinksProps {
   onNavClick?: () => void;
   excludeChat?: boolean;
   chatOnly?: boolean;
+  isMobile?: boolean;
 }
 
 export function NavLinks({ 
@@ -14,15 +15,16 @@ export function NavLinks({
   linkClassName = '', 
   onNavClick,
   excludeChat = false,
-  chatOnly = false
+  chatOnly = false,
+  isMobile = false
 }: NavLinksProps) {
   const links = [
-    { to: '/', icon: Home, label: 'Home' },
-    { to: '/about', icon: User, label: 'About' },
-    { to: '/services', icon: Briefcase, label: 'Services' },
-    { to: '/newsletter', icon: Mail, label: 'Newsletter' },
-    { to: '/booking', icon: Calendar, label: 'Book' },
-    { to: '/contact', icon: MessageCircle, label: "Let's chat", isButton: true }
+    { to: '/', icon: Home, label: 'Home', shortLabel: 'Home' },
+    { to: '/about', icon: User, label: 'About', shortLabel: 'About' },
+    { to: '/services', icon: Briefcase, label: 'Services', shortLabel: 'Services' },
+    { to: '/newsletter', icon: Mail, label: 'Newsletter', shortLabel: 'News' },
+    { to: '/booking', icon: Calendar, label: 'Book', shortLabel: 'Book' },
+    { to: '/contact', icon: MessageCircle, label: "Let's chat", shortLabel: "Chat", isButton: true }
   ];
 
   const filteredLinks = chatOnly 
@@ -39,10 +41,11 @@ export function NavLinks({
             key={index}
             to={link.to}
             onClick={onNavClick}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center gap-2 transition-colors w-full justify-center"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 xl:py-3 rounded-lg flex items-center gap-1.5 lg:gap-2 xl:gap-3 transition-colors w-full justify-center text-sm lg:text-sm xl:text-base"
           >
-            <link.icon size={18} />
-            {link.label}
+            <link.icon size={16} className="lg:w-4 lg:h-4 xl:w-[18px] xl:h-[18px]" />
+            <span className={isMobile ? "inline" : "hidden md:inline xl:hidden"}>{link.shortLabel}</span>
+            <span className={isMobile ? "hidden" : "hidden xl:inline"}>{link.label}</span>
           </Link>
         ) : (
           <Link
@@ -51,8 +54,9 @@ export function NavLinks({
             onClick={onNavClick}
             className={linkClassName}
           >
-            <link.icon size={18} />
-            {link.label}
+            <link.icon size={16} className="lg:w-4 lg:h-4 xl:w-[18px] xl:h-[18px]" />
+            <span className={isMobile ? "inline" : "hidden md:inline xl:hidden"}>{link.shortLabel}</span>
+            <span className={isMobile ? "hidden" : "hidden xl:inline"}>{link.label}</span>
           </Link>
         )
       )}

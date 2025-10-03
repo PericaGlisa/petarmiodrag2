@@ -19,7 +19,7 @@ export function MobileMenu() {
   }, [isOpen]);
 
   return (
-    <div className="block lg:hidden">
+    <div className="block md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="text-white p-2.5 hover:bg-gray-800/80 active:bg-gray-800 rounded-xl transition-all transform active:scale-95"
@@ -79,6 +79,7 @@ export function MobileMenu() {
                   linkClassName="text-gray-300 hover:text-white flex items-center gap-3 p-3.5 rounded-xl hover:bg-gray-800/80 active:bg-gray-800 transition-all transform active:scale-98"
                   onNavClick={() => setIsOpen(false)}
                   excludeChat={true}
+                  isMobile={true}
                 />
               </motion.div>
 
@@ -92,6 +93,7 @@ export function MobileMenu() {
                   className="flex flex-col"
                   onNavClick={() => setIsOpen(false)}
                   chatOnly={true}
+                  isMobile={true}
                 />
               </motion.div>
             </motion.div>
