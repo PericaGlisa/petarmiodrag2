@@ -29,7 +29,7 @@ export function TopBar() {
       if (width < 640) { // Mobile
         setDuration(isLandscape ? 90 : 165);
         setFontSize(isLandscape ? 'text-[11px]' : 'text-xs');
-        setPadding(isLandscape ? 'py-1 px-1.5' : 'py-1.5 px-2');
+        setPadding(isLandscape ? 'py-2 px-1.5' : 'py-2.5 px-2');
       } else if (width < 768) { // Small Tablet
         setDuration(isLandscape ? 100 : 155);
         setFontSize(isLandscape ? 'text-xs' : 'text-xs sm:text-sm');
@@ -59,7 +59,7 @@ export function TopBar() {
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 right-0 h-auto min-h-6 ${padding} bg-gray-900/95 backdrop-blur-sm border-b border-gray-600/80 z-40 overflow-hidden shadow-md`}>
+    <div className={`fixed top-0 left-0 right-0 h-auto min-h-8 ${padding} bg-gray-900/95 backdrop-blur-sm border-b border-gray-600/80 z-40 overflow-hidden shadow-md`}>
       <div className="relative w-full h-full flex items-center">
         <motion.div
           className={`whitespace-nowrap text-gray-200 font-light ${fontSize} tracking-wide md:tracking-wider`}

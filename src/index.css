@@ -96,6 +96,14 @@
     transition: transform 300ms;
   }
 
+  /* Mobile optimizations */
+  @media (max-width: 639px) {
+    /* Adjust header position to prevent overlap with TopBar on mobile */
+    .fixed.top-4 {
+      top: 2.25rem; /* 36px - reduced spacing for better visual balance */
+    }
+  }
+
   /* Landscape mode optimizations */
   @media (orientation: landscape) and (max-height: 600px) {
     .min-h-screen {
@@ -122,6 +130,11 @@
       min-height: 1.75rem;
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
+    }
+    
+    /* Adjust header for landscape mobile */
+    .fixed.top-4 {
+      top: 2.5rem; /* Slightly less spacing in landscape */
     }
   }
   
